@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 import re
 import glob
+import gzip
 from collections import Counter
 
 time_now = datetime.now()
@@ -9,8 +10,13 @@ failed_attempts = Counter()
 
 failed_ssh_attempt_re = re.compile(r'Failed password for .* from (\S+) port \d+ ssh2')
 
-for filename in glob.glob('/root/uop/log/auth.log*'):
-    with open(filename, 'r') as file:
+for filename in glob.glob('/root/uop/log/auth.log*') + glob.glob('/root/uop/log/auth.log*.gz'):
+    if filename.endswith('.gz'):
+        open_func = gzip.open
+    else:
+        open_func = open
+
+    with open_func(filename, 'rt') as file:
         for line in file:
             if 'Failed password' not in line:
                 continue
