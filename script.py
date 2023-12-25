@@ -42,10 +42,10 @@ with open("/tmp/stat.txt", "w") as out_file:
 
 def build_html():
     with open("/root/uop/www/head", "r") as out_file:
-        head_content = out_file.read
+        head_content = out_file.read()
 
     with open("/root/uop/www/tail", "r") as out_file:
-        tail_content = out_file.read
+        tail_content = out_file.read()
 
     ipAddresses = ""
     for ip, count in failed_attempts.most_common():
@@ -55,7 +55,7 @@ def build_html():
                 <span class="ip-count">{count}</span>
             </div>"""
 
-    full_index_html = head_content + ip_address + tail_content
+    full_index_html = head_content + ipAddresses + tail_content
 
     with open("/var/www/html/index.html", "w") as index_html:
         index_html.write(full_index_html)
