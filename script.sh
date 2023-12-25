@@ -3,7 +3,7 @@
 remote_user="user"
 remote_host="host"
 remote_port="8822"
-remote_log_path="var/log/auth.log*"
+remote_log_path="/var/log/auth.log*"
 local_log_path="/root/uop/log"
 web_root="/var/www/html"
 
