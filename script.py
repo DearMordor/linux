@@ -10,8 +10,8 @@ failed_attempts = Counter()
 
 failed_ssh_attempt_re = re.compile(r"Failed password for .* from (\S+) port \d+ ssh2")
 
-for filename in glob.glob("/root/uop/log/auth.log*") + glob.glob(
-        "/root/uop/log/auth.log*.gz"
+for filename in glob.glob("/home/root/uop/log/auth.log*") + glob.glob(
+        "/home/root/uop/log/auth.log*.gz"
 ):
     if filename.endswith(".gz"):
         open_func = gzip.open
@@ -41,10 +41,10 @@ with open("/tmp/stat.txt", "w") as out_file:
 
 
 def build_html():
-    with open("/root/uop/www/head", "r") as out_file:
+    with open("/home/root/uop/www/head", "r") as out_file:
         head_content = out_file.read()
 
-    with open("/root/uop/www/tail", "r") as out_file:
+    with open("/home/root/uop/www/tail", "r") as out_file:
         tail_content = out_file.read()
 
     ipAddresses = ""
