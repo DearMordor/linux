@@ -4,7 +4,7 @@ remote_user="user"
 remote_host="host"
 remote_port="8822"
 remote_log_path="/var/log/auth.log*"
-uop_path="/root/uop"
+uop_path="/home/root/uop"
 local_log_path="$uop_path/log"
 web_root="/var/www/html"
 
